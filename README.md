@@ -1,13 +1,11 @@
-# Association for Pathology Informatics R Workshop
+# Laboratory Medicine Core Data Analysis Sessions
 
-This introductory R workshop aims to teach participants with minimal programming experience the basics of the R statistical programming language for reproducible laboratory data analytics. R is a freely available programming environment that is aimed squarely at common activities in data analysis including complex data manipulation, statistical analysis, automation, and publication-quality data visualization. We will introduce basic concepts of R programming as well as more generalizable best practices in working with laboratory data. 
+These introductory R sessions aim to teach participants with minimal programming experience the basics of the R statistical programming language for reproducible data analysis. R is a freely available programming environment that is well-suited for common activities in data analysis including complex data manipulation, statistical analysis, automation, and publication-quality data visualization. We will introduce basic concepts of R programming as well as more generalizable best practices in working with laboratory data. 
 
 - Instructors: 
-  * Daniel Herman
-  * [Stephan Kadauke](https://www.linkedin.com/in/skadauke/)
-  * [Patrick Mathias](https://www.linkedin.com/in/pcmathias/)
-  * Amrom Obstfeld
-  * Joseph Rudolf
+  * Patrick Mathias
+  * Niklas Krumm
+  * Alex Mays
  
 
 ## Pre-course work/requirements
