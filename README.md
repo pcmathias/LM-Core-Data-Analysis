@@ -12,7 +12,7 @@ These introductory R sessions aim to teach participants with minimal programming
 
 - A laptop (macOS, Windows, or Linux) with WiFi
   - Please confirm you can connect to the WiFi prior to class
-- Please complete the following survey so we can better understand your R experience and what you want out of the course: [API R Workshop Participant Survey](https://forms.gle/Xe3U71ZBZRmrP2E87)
+- Please complete the following survey so we can better understand your R experience and what you want out of the course: [Pre Course Survey](https://forms.gle/QSos2JwqhqUojpA79)
 - The program that we will be using to interact with R during the course is called RStudio. We will be using a cloud based RStudio server, hosted at [RStudio.Cloud](https://rstudio.cloud/), in our workshop. Our intent in using a cloud-based platform to minimize possible in-class setup issues.
 - Please follow the instructions in [this presentation](https://bit.ly/2W61U4d) to setup an [RStudio.Cloud](https://rstudio.cloud/) account. 
 - Link to RStudio.Cloud workspace: https://rstudio.cloud/spaces/19998/join?access_code=MVMM2UkHscHnpf%2FBa04Cb7e%2BBXnUi6g4QpFXVq6c
