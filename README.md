@@ -1,11 +1,20 @@
 # Laboratory Medicine Core Data Analysis Sessions
 
-These introductory R sessions aim to teach participants without programming experience the basics of the R statistical programming language for reproducible data analysis. R is a freely available programming environment that is well-suited for common activities in data analysis including complex data manipulation, statistical analysis, automation, and publication-quality data visualization. We will introduce basic concepts of R programming as well as more generalizable best practices in working with laboratory data. 
+These introductory R sessions aim to teach participants without programming experience the basics of the R statistical programming language for reproducible data analysis. R is a freely available programming environment that is well-suited for common activities in data analysis including complex data manipulation, statistical analysis, automation, and publication-quality data visualization. We will introduce basic concepts of R programming as well as more generalizable best practices in working with laboratory data.
 
-- Instructors: 
-  * Patrick Mathias
-  * Niklas Krumm
-  * Alex Mays
+The goals for this course are for participants to be comfortable performing the following basic tasks on a data set:
+- Import a csv, text, or Excel file
+- Create a relevant subset of data for analysis
+- Add columns to the data set based on calculations or manipulation of existing columns
+- Calculate summary statistics for the entire data set and/or important subgroups of data
+- Perform basic statistical tests on a data set
+- Develop simple visualizations that summarize data such as barplots and scatterplots
+- Produce a reproducible report so others can clearly understand and repeat an analysis
+
+Instructors: 
+- Patrick Mathias
+- Niklas Krumm
+- Alex Mays
  
 
 ## Pre-course work/requirements
