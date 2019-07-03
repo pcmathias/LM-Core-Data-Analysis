@@ -47,6 +47,14 @@ There are multiple ways to access and interact with the content, depending on wh
    * Unzip the file to a convenient location (your desktop or documents folder)
    * When you open RStudio, set this location as your working directory 
 
+## Original Contributions
+
+The content for this course was originally developed for the 2019 Pathology Informatics Summit workshop. The original contributors and content they were responsible for were as follows:
+- Joe Rudolf: Introduction to R & RStudio
+- Patrick Mathias: Reproducible Reporting
+- Amrom Obstfeld: Data Transformation & Exploratory Data Analysis
+- Stephan Kadauke: Data Visualization
+- Dan Herman: Data Summary & Statistics
 
 ## Acknowledgments
 
