@@ -1,5 +1,5 @@
 ---
-title: "R Markdown for Reproducible Reporting"
+title: "Lesson 3 - Importing Data"
 author: "Patrick Mathias"
 output:
   pdf_document: default
