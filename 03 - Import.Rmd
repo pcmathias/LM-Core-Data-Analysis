@@ -6,7 +6,7 @@ output:
   html_document: default
 ---
 
-## Setup
+## Your Turn 1
 
 The first chunk in the document is typically where you load all packages you will use throughout the document.
 
@@ -34,9 +34,9 @@ catalog <- read_csv("data/test_catalog.csv")
 
 What does RStudio tell you after you import the data?
 
-## Your Turn 1
+## Your Turn 2
 
-1. Locate and load the orders data set for the course from the data folder into an object (data frame) called "orders". 
+1. Locate and load the "orders_data_set.csv" file from the data folder into an object (data frame) called "orders". 
 2. Within your Environment tab (top right), click the name of the object and review the raw data.
 3. Summarize the data using the `summary()` function.
 
@@ -44,6 +44,31 @@ What does RStudio tell you after you import the data?
 orders <- 
 summary( )
 ```
+
+## Parsing data on import
+
+The readr and readxl packages generally are effective in identifying the data type of a column when it is being imported. They will automatically parse the data with the correct type most of the time. For example, if a column has only whole numbers, the data frame that you import the data into will have a integer data type for that column. The same is true for dates and times, but there are a variety of formats that the import functions don't recognize unless you provide a date and/or time format.
+
+There are additional arguments to readr functions that can explicitly specify the data type for columns.
+
+```{r}
+orders <- read_csv("data/orders_data_set.csv", 
+                   col_types = cols(
+                     order_time = col_datetime("%m/%d/%Y %H:%M")
+                     )
+                   )
+summary(orders)
+```
+
+## Your Turn 3
+
+Import the result_time and review_time columns with the datetime data type and confirm the data types are correct.
+
+```{r}
+orders <- 
+summary(orders)
+```
+
 
 ## Tabulating
 
@@ -58,7 +83,7 @@ tabyl(orders, department)
 tabyl(orders, department, order_status_c_descr)
 ```
 
-## Your Turn 5
+## Your Turn 4
 
 1. Which 3 departments ordered the highest number of labs using “Provider Preference Lists”? (pref_list_type variable)
 2. What happens if you add another variable to the tabyl() function (3 variables total)? Start out with variables we've already created tables for.
@@ -74,40 +99,4 @@ tabyl(orders, , )
 kable(tabyl(orders, department, pref_list_type))
 ```
 
-## Creating basic plots
 
-```{r}
-ggplot(orders) + 
-  geom_histogram(aes(x = order_time))
-```
-
-```{r}
-ggplot(orders) + 
-  geom_histogram(aes(x = order_time), binwidth = 24*60*60)
-```
-
-```{r}
-ggplot(orders) + 
-  geom_histogram(aes(x = order_status_c_descr), stat = "count")
-```
-
-## Your turn 6
-
-1. Plot the distribution of review times by day.
-2. Plot the distribution of order reviews by week instead of by day.
-
-```{r}
-ggplot(orders) +
-  geom_histogram(aes(x = ), binwidth = 24*60*60)
-ggplot(orders) +
-  geom_histogram(aes(x = ), binwidth = )
-```
-
-## Your turn 7
-
-Create a pdf of your lesson 2 markdown document using “Knit to pdf”
-
-## Your turn 8
-
-1. Create a new R Markdown document but select “Presentation” instead of “Document” from menu
-2. Select one of the HTML options and knit the document
