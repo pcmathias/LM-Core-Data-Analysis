@@ -1,5 +1,5 @@
 ---
-title: "Lesson 3 - Importing Data"
+title: "Importing Data"
 author: "Patrick Mathias"
 output:
   pdf_document: default
@@ -34,7 +34,7 @@ catalog <- read_csv("data/test_catalog.csv")
 
 What does RStudio tell you after you import the data?
 
-## Your Turn 4
+## Your Turn 1
 
 1. Locate and load the orders data set for the course from the data folder into an object (data frame) called "orders". 
 2. Within your Environment tab (top right), click the name of the object and review the raw data.
