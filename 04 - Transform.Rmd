@@ -10,7 +10,7 @@ editor_options:
 ```{r setup}
 library(tidyverse)  # Provides functions used throughout this session
 library(readxl) # Provides function for reading in excel workbooks
-orders <- read_excel("/cloud/project/data/orders_data_set.xlsx")
+orders <- read_excel("data/orders_data_set.xlsx")
 ```
 
 ## Orders
@@ -39,17 +39,6 @@ select(orders, c(1,4))
 ```{r}
 orders_2 <- select(orders, ________)
 orders_2
-```
-
-## Consider
-
-Which of these is NOT a way to remove the columns that represent status codes?
-
-```{r}
-select(orders, -ends_with("_c"))
-select(orders, -c(lab_status_c, order_status_c, reason_for_canc_c))
-select(orders, -c(6,8,10))
-select(orders, -contains("status"))
 ```
 
 ## Filter
@@ -174,7 +163,9 @@ The weekdays() function will return the weekday for any date.
 
 
 ```{r}
-
+orders %>%
+  
+  
 ```
 
 
@@ -194,16 +185,18 @@ orders %>%
 	                          proc_code)) 
 ```
 
-## Final Challenge
+## Using `case_when()` with `mutate()`
 
-The pref_list_type column has values of either "Clinic Preference List", "Provider Preference List", or "None".
-
-1. Conditionally replace these with "clinic", "provider", and NA, respectively.
+In some cases we want to rename categories of data of apply multiple logic conditions to categorize an observation. `case_when()` can be used along with `mutate()` to provide a list of conditions.
 
 ```{r}
-
+orders <- orders %>%
+  mutate(pref_list_cat = case_when(
+    pref_list_type == "Clinic Preference List" ~ "clinic",
+    pref_list_type == "Provider Preference List" ~ "provider",
+    pref_list_type == "None" ~ NA_character_
+  ))
 ```
-
 
 # Take aways
 
