@@ -1,5 +1,5 @@
 ---
-title: "Summarization and statistics in R"
+title: "Summarizing Data"
 output: html_notebook
 editor_options: 
   chunk_output_type: inline
@@ -26,29 +26,30 @@ orders %>%
 
 ## Your Turn 1
 
-Add onto the code in the above chunk to calculate:
-
-1) Mean count of orders per patient
-2) Mean count of orders per department
+Add onto the code in the above chunk to calculate the items for a and b below.
 
 *Hints:* 
 
-- Start by adding a new code block here (copy/paste above or CTRL-ALT-I).
+- Start by adding a new code block under each item (copy/paste above or CTRL-ALT-I).
 - Then copy code from the previous code block and edit to determine the mean number of orders per patient. 
 - Next, add code to calculate the mean count of orders per department. 
-- Assign the results to new objects, orders_1 and orders_2.
+- Assign the results to new objects, orders_1a and orders_1b.
+
+a) Mean count of orders per patient
  
 ```{r}
 # solution
-orders_1 <- orders %>%
+orders_1a <- orders %>%
 	summarize(order_count = n(),
 	          pt_count = n_distinct(patient_id)) %>%
   mutate(pt_order_count_mean = order_count / pt_count)
 ```
 
+b) Mean count of orders per department
+
 ```{r}
 # solution
-orders_2 <- orders %>%
+orders_1b <- orders %>%
 	summarize(order_count = n(),
 	          dept_count = n_distinct(department)) %>%
 	mutate(dept_order_count_mean = order_count / dept_count)
@@ -59,10 +60,7 @@ orders_2 <- orders %>%
 
 Use summarize() to calculate:
 
-1) The date of the first (or minimum) order
-2) The median time difference between order_time and result_time
-
-*Hint: Refer to function help for missing data (NA) handling*
+a) The date of the first (or minimum) order
 
 ```{r, eval=FALSE}
 orders %>% 
@@ -71,9 +69,13 @@ orders %>%
 
 ```{r}
 #solution
-orders %>% 
+orders_2a <- orders %>% 
 	summarize(order_time_min = min(order_time))
 ```
+
+b) The median time difference between order_time and result_time
+
+*Hint: Refer to function help for missing data (NA) handling*
 
 ```{r, eval=FALSE}
 orders %>%
@@ -84,7 +86,7 @@ orders %>%
 
 ```{r}
 #solution
-orders %>% 
+orders_2b <- orders %>% 
 	mutate(result_interval = result_time - order_time) %>%
 	summarize(result_interval_med = median(result_interval, na.rm = T))
 ```
@@ -108,30 +110,32 @@ orders %>%
 
 ## Your Turn 4
 
-1) Calculate the median number of orders per patient
-2) Calculate the maximum number of TSH orders per patient
-3) (*Bonus*) The 5th and 95th percentile of the number of orders per patient
+a) Calculate the median number of orders per patient
 
 ```{r}
 # solution
-orders %>%
+orders_4a <- orders %>%
 	group_by(patient_id) %>%
 	summarize(order_count = n()) %>%
 	summarize(pt_order_count_median = median(order_count))
 ```
 
+b) Calculate the maximum number of TSH orders per patient
+
 ```{r}
 #solution
-orders %>%  
+orders_4b <- orders %>%  
 	filter(proc_code == "TSH") %>%	
 	group_by(patient_id) %>%
 	summarize(order_count = n()) %>%
 	summarize(pt_order_count_max = max(order_count))
 ```
 
+c) (*Bonus*) The 5th and 95th percentile of the number of orders per patient
+
 ```{r}
 #solution
-orders %>%
+orders_4c <- orders %>%
 	group_by(patient_id) %>%
 	summarize(order_count = n()) %>%
 	summarize(pt_order_count_q05 = quantile(order_count, probs=0.05),  
@@ -139,12 +143,13 @@ orders %>%
 ```
 
 ## Your Turn 5
+
 Calculate the mean order count per patient for each department
 
 *Hint: summarize() rolls up a single grouping variable at a time*
 
 ```{r, eval=FALSE}
-orders %>%
+orders_5 <- orders %>%
   ________(______________) %>%
   summarize(_______________) %>%
   summarize(_______________________)
@@ -153,82 +158,8 @@ orders %>%
 
 ```{r}
 #solution
-orders %>%	    
+orders_5 <- orders %>%	    
 	group_by(department, patient_id) %>%	    
 	summarize(order_count = n()) %>%    # summarize over department-patient_id groups
 	summarize(pt_order_count_mean = mean(order_count)) # summarize over department groups
 ```
-
-## Compare two sets of count data
-
-- Is the distribution of the count of orders per patient different in the Internal Medicine and Family Medicine clinics?
-
-## Create sample distributions
-
-```{r}
-orders_per_pt_dept <- orders %>%	        
-				filter(department %in% c("INTERNAL MEDICINE CLINIC", "FAMILY MEDICINE CLINIC")) %>%
-        group_by(department, patient_id) %>%	        
-				summarize(order_count = n()) %>%     
-				ungroup()
-				
-head(orders_per_pt_dept)
-```
-
-## Visualize the distribution of order counts
-
-```{r}
-orders_per_pt_dept %>%
-	ggplot() +
-	geom_histogram(aes(x = order_count))
-```
-
-## Describe the central tendency of the order count
-
-```{r}
-orders_per_pt_dept %>% 
-		group_by(department) %>% 
-		summarize(order_count_median = median(order_count), 
-			        order_count_mean = mean(order_count))
-```
-
-## Compare the distributions of order counts
-
-```{r}
-wilcox.test(order_count ~ department, 
-            data        = orders_per_pt_dept, 
-            alternative = "two.sided", 
-            paired      = FALSE, 
-            conf.int    = TRUE)
-```
-
-## Your Turn 6
-
-Compare order counts across the nephrology, cardiology, and gastroenterology departments. Are they different?
-
-*Hint: Convert department to a factor using function factor()*
-
-```{r, eval=FALSE}
-#solution
-orders %>%
-  mutate(department = factor(department)) %>%      # Convert department from character to factor
-  filter(__________________________________) %>%
-  group_by(_________________) %>%
-  summarize(_______________) %>%
-  ungroup() %>%
-  kruskal.test(____________ ~ _____________, 
-	             data = .)           # `.` refers to the data frame passed via the upstream pipe (%>%)
-```
-
-```{r}
-#solution
-orders %>%
-  mutate(department = factor(department)) %>%     # Convert department from character to factor
-  filter(department %in% c("NEPHROLOGY CLINIC", "CARDIOLOGY CLINIC", "GASTROENTEROLOGY CLINIC")) %>%
-  group_by(department, patient_id) %>%
-  summarize(order_count = n()) %>%
-  ungroup() %>%
-  kruskal.test(order_count ~ department, 
-	             data = .)    # `.` refers to the data frame passed via the upstream pipe (%>%)
-```
-
