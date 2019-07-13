@@ -79,22 +79,25 @@ After modifying the code above, copy and paste it into the next two code blocks,
 
 Write 3 filter() statements that use Boolean operators to return rows that contain:
 
-1. Orders for patient number 510909 with proc_code TSH 
-
-2. Orders for one of the following departments: OB GYN CLINIC, GERIATRIC CLINIC, or PEDIATRIC CLINICS
-
-3. CHALLENGE: Orders for tests that were canceled and originally chosen from a preference list (HINT: These are coded in the pref_list_type column as either "Clinic Preference List" or "Provider Preference List")
-
-NOTE: 
-
-* Use the following code block as a template for the first filter() statement. 
-* For each of the remaining two, either copy paste a new code block, or use the CTRL/CMD-ALT-I keyboard shortcut to make a new code block. 
-* Use the new code blocks for the next two filter() statements. 
-* Assign the results of the filter functions to orders_4b and orders_4c, respectively. 
+a. Orders for patient number 510909 with proc_code TSH 
 
 ```{r}
 orders_4a <- filter(orders, _____)
 orders_4a
+```
+
+b. Orders for one of the following departments: OB GYN CLINIC, GERIATRIC CLINIC, or PEDIATRIC CLINICS
+
+```{r}
+orders_4b <- filter(orders, _____)
+orders_4b
+```
+
+c. CHALLENGE: Orders for tests that were canceled and originally chosen from a preference list (HINT: These are coded in the pref_list_type column as either "Clinic Preference List" or "Provider Preference List")
+
+```{r}
+orders_4c <- filter(orders, _____)
+orders_4c
 ```
 
 ## Arrange
@@ -107,6 +110,10 @@ arrange(orders, patient_id)
 
 1. Arrange orders by `order_status_c_descr` and assign the output orders_5. 
 What order statuses appear in the top rows of the data frame?
+
+```{r}
+
+```
 
 2. Add `order_class_c_descr` as a second (tie breaking) column to arrange on, but order it in reverse alphabetical order. 
 What type of order class appears in the first rows of the data frame? Based on the description column, to what type of lab test does this order class seem to relate to?
