@@ -157,7 +157,6 @@ orders_5a <- arrange(orders, order_status_c_descr)
 ```
 
 b. Add `order_class_c_descr` as a second (tie breaking) column to arrange on, but order it in reverse alphabetical order. 
-What type of order class appears in the first rows of the data frame? Based on the description column, to what type of lab test does this order class seem to relate to?
 
 ```{r}
 
@@ -167,6 +166,7 @@ What type of order class appears in the first rows of the data frame? Based on t
 orders_5b <- arrange(orders, order_status_c_descr, desc(order_class_c_descr))
 ```
 
+c. What type of order class appears in the first rows of the data frame? Based on the description column, to what type of lab test does this order class seem to relate to?
 
 ## Steps and the pipe
 

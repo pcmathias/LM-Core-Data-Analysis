@@ -57,7 +57,7 @@ Use the 3 code blocks below, and `filter()`, to show how you would filter the `o
 
 Modify the code in this block to find:
 
-1. Every order_id that is greater than 100000
+a. Every order_id that is greater than 100000
 ```{r}
 orders_3a <- filter(orders, ________)
 orders_3a
@@ -65,12 +65,12 @@ orders_3a
 
 After modifying the code above, copy and paste it into the next two code blocks, and alter it to show:
 
-2. All of the orders where lab_status_c_descr is equal to "Final result" (assign this to orders_3b)
+b. All of the orders where lab_status_c_descr is equal to "Final result" (assign this to orders_3b)
 ```{r}
 
 ```
 
-3. CHALLENGE: All of the orders where reason_for_canc_c_descr is not NA (assign this to orders_3c)
+c. CHALLENGE: All of the orders where reason_for_canc_c_descr is not NA (assign this to orders_3c)
 ```{r}
 
 ```
@@ -108,14 +108,14 @@ arrange(orders, patient_id)
 
 ## Your turn 5
 
-1. Arrange orders by `order_status_c_descr` and assign the output orders_5. 
+a. Arrange orders by `order_status_c_descr` and assign the output orders_5. 
 What order statuses appear in the top rows of the data frame?
 
 ```{r}
 
 ```
 
-2. Add `order_class_c_descr` as a second (tie breaking) column to arrange on, but order it in reverse alphabetical order. 
+b. Add `order_class_c_descr` as a second (tie breaking) column to arrange on, but order it in reverse alphabetical order. 
 What type of order class appears in the first rows of the data frame? Based on the description column, to what type of lab test does this order class seem to relate to?
 
 ```{r}
