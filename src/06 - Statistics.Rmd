@@ -99,6 +99,23 @@ orders_per_pt_dept %>%
 	geom_histogram(aes(x = order_count))
 ```
 
+## Your Turn 3
+
+Another aesthetic mapping is "fill" - this can add a color to fill in the histogram based on another variable. Revise the plot we created by changing the fill of the histogram based on the department of the order.
+
+```{r, eval = FALSE}
+orders_per_pt_dept %>%
+	ggplot() +
+	geom_histogram(aes(x = order_count, fill = ))
+```
+
+```{r}
+# solution
+orders_per_pt_dept %>%
+	ggplot() +
+	geom_histogram(aes(x = order_count, fill = department))
+```
+
 ## Describe the central tendency of the order count
 
 ```{r}
@@ -118,7 +135,7 @@ wilcox.test(order_count ~ department,
             conf.int    = TRUE)
 ```
 
-## Your Turn 6
+## Your Turn 4
 
 Compare order counts across the nephrology, cardiology, and gastroenterology departments. Are they different?
 
