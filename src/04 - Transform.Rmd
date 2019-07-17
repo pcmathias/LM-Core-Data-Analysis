@@ -145,7 +145,7 @@ arrange(orders, patient_id)
 
 ## Your turn 5
 
-a. Arrange orders by `order_status_c_descr` and assign the output orders_5. 
+a. Arrange orders by `order_status_c_descr` and assign the output to orders_5a. 
 What order statuses appear in the top rows of the data frame?
 
 ```{r}
