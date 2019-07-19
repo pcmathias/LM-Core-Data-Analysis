@@ -3,7 +3,7 @@ title: "Visualize Data"
 output: html_notebook
 ---
 
-### Your Turn 4: The ggplot template and aesthetics
+## Your Turn 4: The ggplot template and aesthetics
 
 Run the following code chunk to set up the practice data sets.
 
@@ -67,7 +67,7 @@ Stop here.
 
 
 
-### Your Turn 5: Geom functions
+## Your Turn 5: Geom functions
 
 Pair up.
 
