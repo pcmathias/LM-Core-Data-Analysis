@@ -48,9 +48,8 @@ library( )
 stat2 <- orders %>%	    
 	group_by(department, patient_id) %>%	    
 	summarize(order_count = n()) %>% 
-	summarize(
-	  
-	) 
+	summarize(pt_order_count_skew = __________,
+	          pt_order_count_kurtosis = __________) 
 ```
 
 ## Compare two sets of count data
